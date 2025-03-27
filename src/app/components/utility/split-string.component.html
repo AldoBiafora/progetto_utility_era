@@ -1,0 +1,20 @@
+<div class="container">
+    <h2>Textarea con limite di caratteri e split</h2>
+
+    <textarea [(ngModel)]="inputText" maxlength="500000" placeholder="Inserisci il testo qui..." style="font-size: 14px;"></textarea>
+
+    <div class="controls">
+        <button class="btn mt-4" style="background-color: #1374c5; color: white;" (click)="splitText()">Dividi testo</button>
+        <div class="filename-input">
+            <label for="filename">Nome del file:</label>
+            <input type="text" id="filename" [(ngModel)]="filename" placeholder="Inserisci il nome del file" />
+        </div>
+        <button class="btn mt-4" style="background-color: green; color: white;" (click)="downloadFile()">Scarica file TXT</button>
+    </div>
+
+    <div class="boxes-container">
+        <div *ngFor="let box of textBlocks" class="box">
+           <span style="font-size: 11px;"> {{ box }}</span>
+        </div>
+    </div>
+</div>

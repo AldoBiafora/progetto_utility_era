@@ -1,0 +1,59 @@
+form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  div {
+    margin-bottom: 10px;
+  }
+  
+  label {
+    margin-right: 10px;
+  }
+  
+/*   input, textarea {
+    width: 100%;
+    padding: 2px;
+    box-sizing: border-box;
+  } */
+  
+  button {
+    padding: 10px;
+    background-color: #1374C5;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+
+  mat-card {
+    max-width: 700px; /* Larghezza massima del box */
+    height: 600px; /* Altezza del box */
+    margin: 20px auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra orizzontalmente */
+  }
+  
+  mat-form-field {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 30px;
+    width: 250px; /* Larghezza massima degli input */
+  }
+  
+  mat-card-title {
+    text-align: center;
+    font-size: 20px; /* Dimensione del font del titolo */
+  }
+  
+  button {
+    display: block;
+    margin: 20px 0;
+  }

@@ -1,0 +1,76 @@
+<div class="container">
+    <mat-card>
+  <mat-card-title class="fw-bold mt-5 mb-2">Inserisci i Dati per la crezione dello Script SQL
+  </mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="formScript" (ngSubmit)="onSubmit()">
+        <mat-radio-group formControlName="operation" style="display: flex; justify-content: center; align-items: center;">
+            <mat-radio-button value="insert">Insert</mat-radio-button>
+            <mat-radio-button value="update">Update</mat-radio-button>
+          </mat-radio-group>
+          <div class="filename-input">
+            <label for="filename" class="fw-bold">Nome del file:</label>
+            <mat-form-field appearance="outline">
+                <input matInput type="text" id="filename" [(ngModel)]="filename" placeholder="Inserisci il nome del file" />
+            </mat-form-field>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <mat-form-field appearance="outline">
+                        <mat-label>COD_SOCRIFERIMENTO</mat-label>
+                        <input matInput formControlName="COD_SOCRIFERIMENTO" />
+                      </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field appearance="outline">
+                        <mat-label>COD_LING_USER</mat-label>
+                        <input matInput formControlName="COD_LING_USER" />
+                      </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <mat-form-field appearance="outline">
+                        <mat-label>COD_TEMPLATE</mat-label>
+                        <input matInput formControlName="COD_TEMPLATE" />
+                      </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field appearance="outline">
+                        <mat-label>DES_TEMPLATE</mat-label>
+                        <input matInput formControlName="DES_TEMPLATE" />
+                      </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <mat-form-field appearance="outline">
+                        <mat-label>HTML_TEMPLATE</mat-label>
+                        <input matInput formControlName="HTML_TEMPLATE" />
+                      </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field appearance="outline">
+                        <mat-label>DES_FILE</mat-label>
+                        <input matInput formControlName="DES_FILE" />
+                      </mat-form-field>
+                </div>
+            </div>
+        </div>
+      <div class="container-fluid mt-3">
+        <div class="row">
+            <div class="col d-flex justify-content-center align-items-center h-100">
+                <button mat-raised-button color="primary" type="submit" style="width: 150px; height: 45px;" 
+                [disabled]="formScript.invalid">Crea TXT</button>
+            </div>
+        </div>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
+</div>
