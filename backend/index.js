@@ -5,7 +5,13 @@ const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use(cors());
+// Configurazione CORS
+app.use(cors({
+  origin: ['https://progetto-utility-era.vercel.app', 'http://localhost:4200'],
+  methods: ['GET', 'POST'],
+  credentials: true
+}));
+
 app.use(express.json());
 
 app.get('/api/key', (req, res) => {
