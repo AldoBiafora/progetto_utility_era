@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "hotelInventoryApp": {
+    "progetto-utility": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/hotel-inventory-app",
+            "outputPath": "dist/progetto-utility",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -31,36 +31,20 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [],
-            "fileReplacements": [
-              {
-                "replace": "src/environments/environment.ts",
-                "with": "src/environments/environment.development.ts"
-              }
-            ],
-            "allowedCommonJsDependencies": [
-              "crypto-browserify",
-              "stream-browserify"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
                 },
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "2kb",
                   "maximumError": "4kb"
-                }
-              ],
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
                 }
               ],
               "outputHashing": "all"
@@ -80,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "hotelInventoryApp:build:production"
+              "browserTarget": "progetto-utility:build:production"
             },
             "development": {
-              "browserTarget": "hotelInventoryApp:build:development"
+              "browserTarget": "progetto-utility:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -91,7 +75,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "hotelInventoryApp:build"
+            "browserTarget": "progetto-utility:build"
           }
         },
         "test": {

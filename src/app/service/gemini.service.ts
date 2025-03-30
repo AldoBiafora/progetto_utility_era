@@ -1,36 +1,17 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { GoogleGenerativeAI } from '@google/generative-ai';
-import { firstValueFrom } from 'rxjs';
-import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GeminiService {
-  private apiUrl = environment.production 
-    ? 'https://progetto-utility-backend.onrender.com/api/key'
-    : 'http://localhost:3000/api/key';
-  private ai: GoogleGenerativeAI | null = null;
+  private ai: GoogleGenerativeAI;
 
-  constructor(private http: HttpClient) {
-    this.initializeAI();
-  }
-
-  private async initializeAI() {
-    try {
-      const response = await firstValueFrom(this.http.get<{ apiKey: string }>(this.apiUrl));
-      this.ai = new GoogleGenerativeAI(response.apiKey);
-    } catch (error) {
-      console.error('Errore nel recupero dell\'API key:', error);
-    }
+  constructor() {
+    this.ai = new GoogleGenerativeAI('AIzaSyDYGFeSAJ3BVrkj5ms1VV48SJJ7ONnII60');
   }
 
   async generateResponse(prompt: string): Promise<string> {
-    if (!this.ai) {
-      throw new Error('AI non inizializzata');
-    }
-
     try {
       const model = this.ai.getGenerativeModel({ model: "gemini-2.0-flash" });
       const result = await model.generateContent(prompt);
