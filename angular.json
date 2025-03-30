@@ -41,10 +41,7 @@
             "allowedCommonJsDependencies": [
               "crypto-browserify",
               "stream-browserify"
-            ],
-            "environment": {
-              "GEMINI_API_KEY": "${GEMINI_API_KEY}"
-            }
+            ]
           },
           "configurations": {
             "production": {
@@ -66,10 +63,7 @@
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.prod.ts"
                 }
-              ],
-              "environment": {
-                "GEMINI_API_KEY": "${GEMINI_API_KEY}"
-              }
+              ]
             },
             "development": {
               "buildOptimizer": false,
@@ -77,10 +71,7 @@
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true,
-              "environment": {
-                "GEMINI_API_KEY": "${GEMINI_API_KEY}"
-              }
+              "namedChunks": true
             }
           },
           "defaultConfiguration": "production"
