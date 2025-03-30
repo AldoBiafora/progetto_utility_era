@@ -2,12 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import { firstValueFrom } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GeminiService {
-  private apiUrl = 'http://localhost:3000/api/key';
+  private apiUrl = environment.production 
+    ? 'https://progetto-utility-backend.onrender.com/api/key'
+    : 'http://localhost:3000/api/key';
   private ai: GoogleGenerativeAI | null = null;
 
   constructor(private http: HttpClient) {
