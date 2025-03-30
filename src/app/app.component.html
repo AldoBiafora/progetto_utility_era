@@ -1,35 +1,37 @@
 <div class="container-fluid" style="margin: 0; padding: 0;">
-    <mat-sidenav-container>
+    <mat-sidenav-container class="sidenav-container">
         <mat-sidenav #sidenav mode="side" closed>
             <mat-nav-list>
-                <a routerLink="/home" routerLinkActive="active">
+                <a routerLink="/home" routerLinkActive="active" (click)="sidenav.close()">
                     <div class="d-flex">
                         <mat-icon>menu</mat-icon>
                         <span style="margin-left: 20px;">Home</span>
                     </div>
                 </a>
-                <a routerLink="/split-string" routerLinkActive="active">
+                <a routerLink="/split-string" routerLinkActive="active" (click)="sidenav.close()">
                     <div class="d-flex" style="height: 30px !important;">
                         <mat-icon>call_split</mat-icon>
                         <span style="margin-left: 20px;">Split string</span>
                     </div>
                 </a>
-                <a routerLink="/create-script" routerLinkActive="active">
+                <a routerLink="/create-script" routerLinkActive="active" (click)="sidenav.close()">
                     <div class="d-flex" style="height: 30px !important;">
                         <mat-icon>edit_document</mat-icon>
                         <span style="margin-left: 20px;">Script SQL - Template</span>
                     </div>
                 </a>
+                <a routerLink="/chat-gemini" routerLinkActive="active" (click)="sidenav.close()">
+                    <div class="d-flex" style="height: 30px !important;">
+                        <mat-icon>chat</mat-icon>
+                        <span style="margin-left: 20px;">Chat Gemini AI</span>
+                    </div>
+                </a>
             </mat-nav-list>
         </mat-sidenav>
+
         <mat-sidenav-content>
-            <mat-toolbar>
-                <button mat-icon-button (click)="sidenav.toggle()" class="btn-toggle">
-                    <mat-icon>menu</mat-icon>
-                </button>
-                <span>Utility web app</span>
-            </mat-toolbar>
-            <div class="container-fluid">
+            <app-toolbar [sidenav]="sidenav"></app-toolbar>
+            <div class="content-container">
                 <router-outlet></router-outlet>
             </div>
         </mat-sidenav-content>

@@ -1,0 +1,10 @@
+<mat-toolbar class="toolbar-custom pl-5">
+  <button mat-icon-button (click)="toggleSidenav()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <h3 class="pl-5">Progetto Utility ERA</h3>
+  <span class="spacer"></span>
+  <button mat-icon-button (click)="toggleTheme()" matTooltip="{{ isDarkTheme ? 'Passa al tema chiaro' : 'Passa al tema scuro' }}">
+    <mat-icon>{{ isDarkTheme ? 'light_mode' : 'dark_mode' }}</mat-icon>
+  </button>
+</mat-toolbar> 

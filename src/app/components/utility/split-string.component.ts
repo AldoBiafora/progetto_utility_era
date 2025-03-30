@@ -3,55 +3,39 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'split-string-component',
   templateUrl: './split-string.component.html',
-  styleUrls: ['./split-string.component.css']
+  styleUrls: ['./split-string.component.scss']
 })
 export class SplitStringComponent {
   title = 'Project_Utility';
 
   inputText: string = '';
   textBlocks: string[] = [];
-  filename: string = 'testo'; // Nome del file di default
+  filename: string = 'output';
+  boxes: string[] = [];
 
   ngOnInit(): void {
     
   }
 
   splitText() {
-    const maxLength = 20000;
-    const textLength = this.inputText.length;
-    let start = 0;
-    let end = maxLength;
+    if (!this.inputText.trim()) return;
 
-    this.textBlocks = [];
-
-    while (start < textLength) {
-      const textBlock = this.inputText.slice(start, end);
-      this.textBlocks.push(textBlock);
-
-      start = end;
-      end = start + maxLength;
-    }
+    // Dividi il testo in righe
+    const lines = this.inputText.split('\n');
+    this.boxes = lines.filter(line => line.trim());
   }
 
-  downloadFile() {
-    // Se il nome del file non è stato specificato, usiamo "testo.txt" come default
-    const fileName = this.filename.trim() ? `${this.filename}.txt` : 'testo.txt';
-    
-    // Creiamo il contenuto del file con i segmenti numerati
-    let fileContent = '';
-    this.textBlocks.forEach((block, index) => {
-        // Sostituiamo gli apostrofi con doppi apici
-        let sanitizedBlock = block.replace(/'/g, '"');
+  downloadTxtFile() {
+    if (this.boxes.length === 0) return;
 
-        // Aggiungiamo "----------------" dopo il numero del segmento
-        fileContent += `--Segmento ${index + 1} -------------------- \n${sanitizedBlock}\n\n`;
-    });
-
-    const blob = new Blob([fileContent], { type: 'text/plain' });
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = fileName;
-    link.click();
+    const content = this.boxes.join('\n');
+    const fileName = this.filename.trim() ? `${this.filename}.txt` : 'output.txt';
+    const blob = new Blob([content], { type: 'text/plain' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = fileName;
+    a.click();
+    window.URL.revokeObjectURL(url);
   }
-
 }

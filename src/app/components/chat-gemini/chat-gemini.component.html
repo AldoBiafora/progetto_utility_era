@@ -1,0 +1,33 @@
+<div class="chat-container mt-5">
+  <div class="header">
+    <h1>Chat con Gemini</h1>
+    <p>Fai domande e ricevi risposte intelligenti</p>
+  </div>
+
+  <div class="chat-box" *ngIf="displayedResponse || loading">
+    <div *ngIf="displayedResponse" class="ai-message">
+      {{ displayedResponse }}
+    </div>
+    <div *ngIf="loading" class="loading-container">
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+      <p>L'AI sta generando una risposta...</p>
+    </div>
+  </div>
+
+  <div class="input-container">
+    <mat-form-field appearance="outline">
+      <mat-label>Scrivi un messaggio...</mat-label>
+      <input matInput type="text" [(ngModel)]="userMessage" placeholder="Scrivi qui la tua domanda..." (keydown.enter)="onKeyPress($event)" />
+    </mat-form-field>
+    <div class="button-container mb-3">
+      <button *ngIf="!loading" mat-raised-button color="primary" (click)="getAIResponse(userMessage)" [disabled]="!userMessage.trim()">
+        Invia
+      </button>
+      <button *ngIf="loading" mat-raised-button color="warn" (click)="stopResponse()">
+        Stop
+      </button>
+    </div>
+  </div>
+</div>
+
+

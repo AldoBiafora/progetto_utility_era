@@ -14,16 +14,23 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
-import { MatRadioModule } from '@angular/material/radio'; 
+import { MatRadioModule } from '@angular/material/radio';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { ChatGeminiComponent } from './components/chat-gemini/chat-gemini.component';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
 
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     SplitStringComponent,
     HomeComponent,
-    CreateScriptComponent
+    CreateScriptComponent,
+    ChatGeminiComponent,
+    ToolbarComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +47,10 @@ import { AppComponent } from './app.component';
     MatButtonModule,
     MatFormFieldModule,
     MatCardModule,
-    MatRadioModule
+    MatRadioModule,
+    MatProgressBarModule,
+    MatTooltipModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

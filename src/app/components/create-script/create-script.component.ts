@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'create-script-component',
   templateUrl: './create-script.component.html',
-  styleUrls: ['./create-script.component.css']
+  styleUrls: ['./create-script.component.scss']
 })
 export class CreateScriptComponent {
   formScript: FormGroup;

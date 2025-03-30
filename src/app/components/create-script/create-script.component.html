@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-5 pt-5">
     <mat-card>
   <mat-card-title class="fw-bold mt-5 mb-2">Inserisci i Dati per la crezione dello Script SQL
   </mat-card-title>
@@ -11,7 +11,7 @@
           <div class="filename-input">
             <label for="filename" class="fw-bold">Nome del file:</label>
             <mat-form-field appearance="outline">
-                <input matInput type="text" id="filename" [(ngModel)]="filename" placeholder="Inserisci il nome del file" />
+                <input matInput type="text" id="filename" [(ngModel)]="filename" [ngModelOptions]="{standalone: true}" placeholder="Inserisci il nome del file" />
             </mat-form-field>
         </div>
         <div class="container">

@@ -1,0 +1,221 @@
+@use '@angular/material' as mat;
+
+/* Include theme styles for core and each component used in your app. */
+@include mat.core();
+
+/* Define a dark theme */
+$dark-primary: mat.define-palette(mat.$blue-grey-palette);
+$dark-accent: mat.define-palette(mat.$amber-palette, A200, A100, A400);
+$dark-theme: mat.define-dark-theme((
+  color: (
+    primary: $dark-primary,
+    accent: $dark-accent,
+  )
+));
+
+/* Define a light theme */
+$light-primary: mat.define-palette(mat.$indigo-palette);
+$light-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$light-theme: mat.define-light-theme((
+  color: (
+    primary: $light-primary,
+    accent: $light-accent,
+  )
+));
+
+/* Apply the light theme by default */
+@include mat.all-component-themes($light-theme);
+
+/* Stili per il tema chiaro */
+:root {
+  --background-color: #ffffff;
+  --text-color: #333333;
+  --card-background: #ffffff;
+  --border-color: #e0e0e0;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --input-background: #ffffff;
+  --message-background: #f7f7f8;
+}
+
+/* Stili per il tema scuro */
+.dark-theme {
+  @include mat.all-component-themes($dark-theme);
+  
+  background-color: #303030;
+  color: #ffffff;
+
+  .mat-toolbar {
+    background-color: #424242;
+  }
+
+  .mat-sidenav {
+    background-color: #424242;
+  }
+
+  .mat-card {
+    background-color: #424242;
+  }
+
+  .mat-form-field {
+    .mat-form-field-label {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .mat-form-field-underline {
+      background-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .mat-input-element {
+      color: #ffffff;
+    }
+  }
+
+  .mat-raised-button {
+    background-color: #424242;
+    color: #ffffff;
+  }
+
+  .mat-nav-list {
+    background-color: #424242;
+  }
+
+  a {
+    color: #ffffff;
+  }
+
+  .mat-icon {
+    color: #ffffff;
+  }
+
+  .mat-list-item {
+    color: #ffffff;
+  }
+
+  .mat-list-item:hover {
+    background-color: rgba(255, 255, 255, 0.04);
+  }
+
+  .active {
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+}
+
+/* Stili globali */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.mat-card {
+  background-color: var(--card-background);
+  border-color: var(--border-color);
+}
+
+.mat-form-field {
+  background-color: var(--input-background);
+}
+
+/* Stili per la scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-color);
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.sidenav-container {
+  height: 100vh;
+  width: 100%;
+}
+
+mat-sidenav {
+  width: 250px;
+}
+
+mat-sidenav-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-container {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* Media queries per il responsive design */
+@media screen and (max-width: 768px) {
+  mat-sidenav {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .content-container {
+    padding: 10px;
+  }
+
+  mat-toolbar {
+    padding: 0 8px;
+  }
+
+  mat-toolbar span {
+    font-size: 16px;
+  }
+
+  .mat-form-field {
+    width: 100%;
+  }
+
+  .button-container {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  button[mat-raised-button] {
+    width: 100%;
+    margin: 5px 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .content-container {
+    padding: 5px;
+  }
+
+  mat-toolbar {
+    padding: 0 4px;
+  }
+
+  mat-toolbar span {
+    font-size: 14px;
+  }
+
+  .mat-form-field {
+    font-size: 14px;
+  }
+
+  button[mat-raised-button] {
+    height: 40px;
+    font-size: 14px;
+  }
+} 
